@@ -2,7 +2,7 @@ function sendMessage() {
   consoleLog("Going to try sending the message");
   navigator.nfc.push({
     url: "/",
-    records: [{
+    data: [{
       recordType: "text",
       mediaType: "text/plain",
       data: 'blah blah data data'

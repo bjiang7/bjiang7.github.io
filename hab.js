@@ -41,7 +41,7 @@ function consoleLog(data) {
 
 function processMessage(message) {
   message.records.forEach(function (record) {
-    if (record.recordType == "string") {
+    if (record.recordType == "text") {
       consoleLog('Data is string: ' + record.data);
     } else if (record.recordType == "json") {
       processJSON(record.data);

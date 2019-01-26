@@ -7,8 +7,7 @@ function sendMessage() {
       mediaType: "text/plain",
       data: 'blah blah data data'
     }]
-  }, {mode: 'any'})
-.then(() => consoleLog("supposedly sent the message."));
+  }, {mode: 'any'});
 }
 
 function readWriteNfc() {

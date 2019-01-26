@@ -8,8 +8,7 @@ function sendMessage() {
       data: 'blah blah data data'
     }]
   }], {mode: 'any'})
-.then(() => consoleLog("supposedly sent the message."))
-.catch(err => consoleLog("sending message failed: " + err.name));
+.then(() => consoleLog("supposedly sent the message."));
 }
 
 function readWriteNfc() {

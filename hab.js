@@ -1,14 +1,15 @@
 function sendMessage() {
   consoleLog("Going to try sending the message");
-  navigator.nfc.push([{
+  message = [{
     url: 1234567890,
     records: [{
       recordType: "text",
       data: 'blah blah data data'
     }]
-  }], {mode: 'any'})
-  .then(() => consoleLog("supposedly sent the message."))
-  .catch(err => consoleLog("sending message failed: " + err.name));
+  }];
+  navigator.nfc.push(message, {mode: 'any'})
+  .then(() => consoleLog("supposedly sent the message."); processMessage(message))
+  .catch(err => consoleLog("sending message failed: " + err.name); processMessage(message));
 }
 
 function readWriteNfc() {

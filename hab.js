@@ -1,6 +1,13 @@
 function sendMessage() {
   consoleLog("Going to try sending the message");
-  navigator.nfc.push("HELLO", {mode: 'peer'})
+  navigator.nfc.push(navigator.nfc.push({
+    url: "/",
+    data: [{
+      recordType: "text",
+      mediaType: "text/plain",
+      data: 'blah blah data data'
+    }]
+  }, {target: 'peer'})
   .then(() => consoleLog("Sent a message."))
   .finally(() => consoleLog("send message failed"));
 }

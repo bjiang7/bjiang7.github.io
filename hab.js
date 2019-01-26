@@ -1,6 +1,6 @@
 function sendMessage() {
   consoleLog("Going to try sending the message");
-  navigator.nfc.push(navigator.nfc.push({
+  navigator.nfc.push({
     url: "/",
     data: [{
       recordType: "text",

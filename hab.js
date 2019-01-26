@@ -8,8 +8,14 @@ function sendMessage() {
     }]
   }];
   navigator.nfc.push(message, {mode: 'any'})
-  .then(() => consoleLog("supposedly sent the message."); processMessage(message))
-  .catch(err => consoleLog("sending message failed: " + err.name); processMessage(message));
+  .then(() => {
+    consoleLog("supposedly sent the message.");
+    processMessage(message);
+  })
+  .catch(err => {
+    consoleLog("sending message failed: " + err.name);
+    processMessage(message);
+  });
 }
 
 function readWriteNfc() {

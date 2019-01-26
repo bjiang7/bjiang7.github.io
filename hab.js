@@ -1,14 +1,18 @@
+function sendMessage() {
+  consoleLog("Going to try sending the message");
+  navigator.nfc.push([{
+    url: 1234567890,
+    data: [{
+      recordType: "text",
+      data: 'blah blah data data'
+    }]
+  }], {mode: 'any'})
+  .then(() => consoleLog("supposedly sent the message."))
+  .catch(err => consoleLog("sending message failed: " + err.name));
+}
+
 function readWriteNfc() {
   if ('nfc' in navigator) {
-    consoleLog("Going to try sending the message");
-    navigator.nfc.push([{
-      url: 1234567890,
-      data: [{
-        recordType: "text",
-        data: 'blah blah data data'
-      }]
-    }], {mode: 'any'});
-
     // Register the watch
     navigator.nfc.watch(function (message) {
         consoleLog("NFC message received from URL " + message.url);

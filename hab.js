@@ -1,6 +1,6 @@
 function readWriteNfc() {
   if ('nfc' in navigator) {
-    consoleLog("Going to try sending the message")
+    consoleLog("Going to try sending the message");
     navigator.nfc.push([{
       url: 1234567890,
       data: [{

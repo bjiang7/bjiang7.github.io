@@ -9,7 +9,7 @@ function sendMessage() {
     }]
   }, {target: 'peer'})
   .then(() => consoleLog("Sent a message."))
-  .finally(() => consoleLog("send message failed"));
+  .catch(err => consoleLog("Send message failed: " + err.name));
 }
 
 function readWriteNfc() {

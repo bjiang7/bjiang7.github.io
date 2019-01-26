@@ -7,7 +7,7 @@ function readWriteNfc() {
         recordType: "text",
         data: 'blah blah data data'
       }]
-    }]);
+    }], {mode: 'any'});
 
     // Register the watch
     navigator.nfc.watch(function (message) {

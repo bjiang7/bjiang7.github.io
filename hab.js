@@ -2,7 +2,7 @@ function sendMessage() {
   consoleLog("Going to try sending the message");
   navigator.nfc.push([{
     url: 1234567890,
-    data: [{
+    records: [{
       recordType: "text",
       data: 'blah blah data data'
     }]
@@ -16,10 +16,10 @@ function readWriteNfc() {
     // Register the watch
     navigator.nfc.watch(function (message) {
         consoleLog("NFC message received from URL " + message.url);
-        if (message.data[0].recordType === 'empty') {
+        if (message.records[0].recordType === 'empty') {
           navigator.nfc.push([{
             url: message.url,
-            data: [{
+            records: [{
               recordType: "text",
               data: 'Hello World'
             }]
@@ -40,7 +40,7 @@ function consoleLog(data) {
 }
 
 function processMessage(message) {
-  message.data.forEach(function (record) {
+  message.records.forEach(function (record) {
     if (record.recordType == "string") {
       consoleLog('Data is string: ' + record.data);
     } else if (record.recordType == "json") {

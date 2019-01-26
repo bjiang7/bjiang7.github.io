@@ -1,5 +1,14 @@
 function readWriteNfc() {
   if ('nfc' in navigator) {
+    navigator.nfc.push([{
+      url: 1234567890,
+      data: [{
+        recordType: "text",
+        data: 'blah blah data data'
+      }]
+    }])
+
+    // Register the watch
     navigator.nfc.watch(function (message) {
         consoleLog("NFC message received from URL " + message.url);
         if (message.data[0].recordType === 'empty') {

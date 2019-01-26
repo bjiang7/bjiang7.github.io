@@ -1,13 +1,13 @@
 function sendMessage() {
   consoleLog("Going to try sending the message");
-  navigator.nfc.push([{
+  navigator.nfc.push({
     url: "/hello",
     records: [{
       recordType: "text",
       mediaType: "text/plain",
       data: 'blah blah data data'
     }]
-  }], {mode: 'any'})
+  }, {mode: 'any'})
 .then(() => consoleLog("supposedly sent the message."));
 }
 
